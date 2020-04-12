@@ -1,0 +1,22 @@
+.picture, .color{
+    width :300px;
+    height : 200px;
+}
+
+.picture{
+    background-image : url('./mong.jpeg');
+    background-size : cover;
+    position : relative;
+    display : inline-block;
+    top : 200px;
+    left : 600px;
+}
+
+.color{
+    background-color : skyblue;
+    opacity : 50%;
+    position : relative;
+    display : inline-block;
+    left : 600px;
+    z-index : 10;
+}

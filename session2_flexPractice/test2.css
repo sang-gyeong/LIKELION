@@ -1,0 +1,21 @@
+.background{
+    height: 300px;
+    width: 900px;
+    background-color: lightseagreen;
+    display : flex;
+    align-items : center;
+    justify-content : space-around;
+}
+
+.box{
+    height : 150px;
+    width : 150px;
+    background-color: gold;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+}
+
+p{
+   font-size : 30px;
+}

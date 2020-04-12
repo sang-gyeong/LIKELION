@@ -1,0 +1,36 @@
+
+.background{
+    width : 600px;
+    background-color : pink;
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.one{
+    justify-content : flex-start;
+}
+
+.two{
+    justify-content : center;
+}
+
+.three{
+    justify-content : flex-end;
+}
+
+.box{
+    width : 100px;
+    height : 100px;
+    background-color :black;
+    margin : 10px;
+    box-sizing : border-box;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    font-size : 30px;
+    color: white;
+}
+
