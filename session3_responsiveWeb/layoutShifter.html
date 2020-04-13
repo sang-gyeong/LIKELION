@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Layout Shifter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <style>
+    .box { width: 100%; min-height: 100px; }
+    .lime { background-color: lime; }
+    .blue { background-color: blue; }
+    .skyblue { background-color: skyblue; }
+    .green { background-color: green; }
+    .red { background-color: red; }
+    .orange { background-color: orange; }
+    .cyan { background-color: cyan; }
+
+@media(min-width : 768px){
+    .box { width: 100%; min-height: 100px; }
+    .lime { background-color: lime; }
+    .p-0{
+      width : 50%;
+    }
+    .blue { height: 200px; width : 50%; background-color: blue; }
+    .skyblue { background-color: skyblue; }
+    .green {  background-color: green; }
+    .red { background-color: red; }
+    .orange { background-color: orange; }
+    .cyan { background-color: cyan; }
+}
+
+@media(min-width : 1024px){
+  .p-0{
+      width : 60%;
+    }
+    .box { width: 100%; min-height: 100px; }
+    .lime { background-color: lime; }
+    .blue { width: 20%; height: 200px; background-color: blue; }
+    .skyblue { background-color: skyblue; }
+    .green { background-color: green; }
+    .red { width: 20%; height: 200px; background-color: red; }
+    .orange { width: 33%;background-color: orange; }
+    .cyan { background-color: cyan; }
+}
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="box blue"></div>
+      <div class="container p-0">
+        <div class="box skyblue"></div>
+        <div class="box green"></div>
+      </div>
+      <div class="box red"></div>
+    </div>
+  </div>
+</body>
+</html>
