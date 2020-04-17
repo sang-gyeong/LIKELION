@@ -35,6 +35,6 @@ sum_score = 0
 count = len(mutsa_scores)
 for score in mutsa_scores:
     sum_score += score
-print(sum_score/count)
+print(sum_score / count)
 print()
 
