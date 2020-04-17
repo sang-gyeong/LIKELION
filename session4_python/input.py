@@ -29,10 +29,5 @@ first name : Choi, last name: Juwon 이 출력되게 만들기'''
 
 input_name = input("영어 이름을 입력하세요(성과 이름을 공백으로 구분해주세요!)")
 eng_name = input_name.split(" ")
-<<<<<<< HEAD
+
 print(f"first name : {eng_name[0]}, last name : {eng_name[1]}")
-=======
-print(f"first name : {eng_name[0]}, last name: {eng_name[1]}")
-
->>>>>>> b45769beb0ba92fcf5ffe7ab7a9e2f4c66483962
-
