@@ -1,3 +1,4 @@
+
 #실습2 - 홀수구구단, 짝수구구단 함수 정의 후, 인자에 따라 함수를 실행하는 gugudan_odd_or_even 함수 정의 및 실행 
 def gugudan_even():
  for i in range(2,10,2):
@@ -20,18 +21,13 @@ gugudan_odd_or_even(3)
 
 
 
-
-
-
 #실습3 - 인자로 받은 숫자에 따라 1~num까지 구구단 출력하는 함수 정의 및 실행
 def gugudan_by_num(num):
     for i in range (1,num+1):
         for j in range(1,10):
             print("%d x %d = %d" % (i, j, i*j))
 
-gugudan_by_num(5)
-
-
+gugudan_by_num(3)
 
 
 
