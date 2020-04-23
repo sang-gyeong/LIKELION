@@ -1,0 +1,436 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    white-space: nowrap;
+}
+
+p,
+a {
+    margin: 0;
+    font-size: 1.38rem;
+    line-height: 140%;
+}
+
+a {
+    text-decoration: none;
+    color: #576B95;
+}
+
+
+/* ----header영역----*/
+
+header {
+    background-color: white;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.header_logo,
+.header_buttons {
+    width: 130px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.facebook_logo {
+    width: 115px;
+    height: 30px;
+}
+
+.header_buttons {
+    justify-content: flex-end;
+}
+
+.button_wrapper {
+    background-color: #E4E5EB;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_wrapper>.material-icons {
+    font-size: 2.3rem;
+}
+
+
+/* ----main 영역---- */
+
+.main {
+    background-color: #C9CCD1;
+}
+
+.main_box {
+    background-color: white;
+    margin-bottom: 7px;
+}
+
+
+/* ----main_box-story 영역---- */
+
+.story {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 9px;
+}
+
+.story>.stories {
+    border: 0.5px solid #DEDEDE;
+    width: 88px;
+    height: 150px;
+    border-radius: 10%;
+    margin: 3.5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: skyblue;
+}
+
+.story>div:first-child {
+    background-image: url("http://bitly.kr/dZ1Ww8kkR");
+    background-size: 100% 63%;
+    background-repeat: no-repeat;
+    background-color: #F7F8F9;
+    background-position: top;
+}
+
+.story>div:nth-child(2) {
+    background: linear-gradient(to bottom, #C4A487, #4D3523);
+}
+
+.story_photo {
+    width: 87%;
+    padding-bottom: 87%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.story>div:nth-child(2)>.story_photo {
+    background-image: url("http://bitly.kr/SMANbqfal");
+}
+
+.story_circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #1877f3;
+    background-size: cover;
+    background-position: center center;
+    left: 7%;
+    top: 3%;
+    border: 3.5px solid #1877f3;
+}
+
+.story>div:first-child>.story_circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: 57%;
+    left: 35%;
+    background-color: #1877f3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+
+.story>div:nth-child(2)>.story_circle {
+    background-image: url("http://bitly.kr/GUl0gUWcT");
+}
+
+.story_description {
+    position: absolute;
+    font-weight: 500;
+}
+
+.story>div:first-child>.story_description {
+    top: 80%;
+}
+
+.story>div:nth-child(2)>.story_description {
+    left: 7%;
+    bottom: 3%;
+    font-size: 1.15rem;
+    color: white;
+}
+
+
+/* ----main_box-status 영역---- */
+
+.top {
+    height: 58px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.status>.top {
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.profile_photo {
+    width: 35px;
+    height: 35px;
+    margin: 9px;
+    border-radius: 50%;
+    background-image: url('http://bitly.kr/dZ1Ww8kkR');
+    background-size: cover;
+    background-position: center center;
+    border: 0.5px solid #DEDEDE;
+}
+
+.ask_status {
+    font-size: 1.6rem;
+}
+
+.bottom {
+    height: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status>.bottom>div:nth-child(2) {
+    border-right: 1px solid #DEDEDE;
+    border-left: 1px solid #DEDEDE;
+}
+
+.bottom_content {
+    width: 33%;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom_item {
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #64676A;
+}
+
+.bottom_item>.material-icons {
+    font-size: 1.8rem;
+    margin-right: 3px;
+}
+
+.bottom_item>.icon_description {
+    font-size: 1.35rem;
+}
+
+.status .icon_description {
+    color: black;
+}
+
+
+/* ----main_box-timeline 영역---- */
+
+.timeline>.top>.more_horiz {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: #64676A;
+}
+
+.timeline>.top>.profile_photo {
+    background-image: url('http://bitly.kr/CPZDWVaCq');
+}
+
+.title_box {
+    width: 85%;
+    padding-top: 5px;
+}
+
+.title_box>.title {
+    font-size: 1.44rem;
+}
+
+.title_box>.dateTime {
+    font-size: 1.33rem;
+    color: gray;
+    position: relative;
+}
+
+.title_box>.dateTime>.material-icons {
+    font-size: 1.6rem;
+    position: relative;
+    top: 3px;
+}
+
+.middle>article {
+    padding: 5px 8px;
+}
+
+
+/* ----timeline photo_box 영역---- */
+
+.photo_box {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(min-width:375px) {
+    .photo_box {
+        width: 375px;
+        height: 375px;
+    }
+}
+
+@media(min-width:425px) {
+    .photo_box {
+        width: 425px;
+        height: 425px;
+    }
+}
+
+.photo_box>.big {
+    width: 66%;
+    height: 100%;
+    background-image: url("http://bitly.kr/S5a5M4bbm");
+}
+
+.photo_box>.photo_wrapper {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.photo_wrapper>.photo {
+    width: 100%;
+    height: 32.7%;
+}
+
+.photo {
+    background-size: cover;
+    background-position: center center;
+}
+
+.photo_wrapper>.one {
+    background-image: url("http://bitly.kr/dNP6G2kHG");
+}
+
+.photo_wrapper>.two {
+    background-image: url("http://bitly.kr/RRN5bp9jF");
+}
+
+.photo_wrapper>.three {
+    background-image: url("http://bitly.kr/XNNH8Twb8");
+    filter: brightness(50%);
+}
+
+.photo_wrapper>.over_nine {
+    position: absolute;
+    bottom: 12%;
+}
+
+.over_nine>p {
+    color: white;
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+
+/* ----timeline like_status 영역---- */
+
+.like_status {
+    margin: 0 auto;
+    width: 96%;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.like_status_content {
+    display: flex;
+    align-items: center;
+    font-size: 1.35rem;
+    color: #64676A;
+}
+
+.like_status_content>span {
+    margin-left: 5px;
+}
+
+.like_status_content>.likes {
+    background-color: red;
+    font-size: 1rem;
+    padding: 2px;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+    margin-right: -1px;
+}
+
+span.likes:first-child {
+    background-color: #1877F3;
+    margin-right: -10px;
+    position: relative;
+}
+
+.like_status_content>.mini {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin: 0 0 0 4px;
+}
+
+.like_status_content>.drop_down {
+    font-size: 2rem;
+    margin-left: -3px;
+    position: relative;
+}
+
+
+/* ----nav 영역---- */
+
+nav {
+    background-color: white;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 9px;
+}
+
+nav>.material-icons {
+    font-size: 2.7rem;
+    color: #64676A;
+    width: 50px;
+    text-align: center;
+}
+
+nav>span:first-child {
+    border-top: 2px solid #1877f3;
+    color: #1877f3;
+    position: relative;
+    padding-top: 8px;
+    bottom: 10px;
+}
