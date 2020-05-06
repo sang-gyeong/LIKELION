@@ -3,7 +3,6 @@ import csv
 from bs4 import BeautifulSoup
 from yes24_books_func import extract_info
 
-
 file = open("yes24_books.csv", mode="w", newline='') #읽기모드
 writer = csv.writer(file)
 writer.writerow(["title", "img_src", "author", "publisher", "price", "summary"])
