@@ -1,0 +1,157 @@
+body{
+  background-color : #F7F7F7;
+  display : flex;
+  width : 1000px;
+  height : 500px;
+  padding : 70px 140px;
+  font-size : 0.95rem;
+  color : #222222;
+}
+
+a{
+  text-decoration: none;
+    color : #222222;
+}
+
+nav{
+  width : 20%;
+  box-sizing : border-box;
+  height : 100%;
+}
+
+ul{
+  padding : 0;
+  list-style : none;
+}
+
+
+.logo{
+  width : 200px;  
+}
+
+.category_list{
+  background-color : white;
+  text-align : center;
+  height : 70%;
+  margin-top : 7px;
+}
+
+.category_list > li{
+  margin-top : 24px;
+}
+
+.write{
+  width : 100%;
+  height : 50px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  font-weight : 700;
+  font-size : 1.15rem;
+  background-color : black;
+  color : white;
+  margin-bottom : 35px;
+}
+
+
+
+/* article */
+
+article{
+  background-image : url('http://bitly.kr/oEFw8J48A');
+  background-size: 100% 100%;
+  margin-left : 7px;
+  width : 80%;
+  padding : 20px 20px;
+  box-sizing : border-box;
+  font-family : 'Noto Serif KR', sans;
+}
+
+.article_list{
+  margin-top : 50px;
+}
+
+.article_list > li{
+ margin-top : 15px;
+ margin-left : 55px;
+}
+
+.article_list a{
+  font-size : 0.87rem;
+}
+
+
+
+/* new.html */
+
+.input_box{
+width : 85%;
+height : 380px;
+margin : 45px 60px;
+text-align : center;
+position : relative;
+}
+
+
+.input_box > * {
+font-size : 0.9rem;
+padding-left : 10px;
+box-sizing : border-box;
+border : none;
+}
+
+.input_category{
+width : 14%;
+height : 37px;
+}
+
+.input_title{
+width : 85%;
+height : 37px;
+}
+
+.input_content{
+display : inline-block;
+width : 100%;
+height : 270px;
+margin-top : 10px;
+padding-bottom : 225px;
+}
+
+
+.submit_button{
+width : 110px;
+height : 42px;
+background-color : black;
+color : white;
+font-size : 1rem;
+font-weight : 600;
+position : absolute;
+right : 0;
+bottom : 0;
+}
+
+/* detail */
+
+
+.detail_box{
+  width : 85%;
+  height : 80%;
+  margin : 50px 60px;
+}
+
+.title{
+    margin : 0;
+}
+
+.date_time{
+  font-size : 0.6rem;
+  margin : 0;
+}
+
+.content {
+  margin-top : 25px;
+  font-size : 0.85rem;
+}
+
+

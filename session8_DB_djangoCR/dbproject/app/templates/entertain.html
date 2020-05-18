@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <title>Review Blog</title>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'index_i_will_use_in_html' %}"><img class="logo" src="http://bitly.kr/3EUfQ2FsD2" alt="logo"></a>
+      
+    <ul class="category_list">
+      <a class = "write" href="{% url 'new_i_will_use_in_html' %}">리뷰 쓰러가기</a>
+      <li><a  href="{% url 'index_i_will_use_in_html' %}">전체보기 ({{cnt_all}})</a></li>
+     <li><a href="{% url 'movie_i_will_use_in_html' %}">영화 ({{cnt_movie}})</a></li>
+     <li><a href="{% url 'drama_i_will_use_in_html' %}">드라마 ({{cnt_drama}})</a></li>
+     <li><a style="font-weight : 900;" href="{% url 'entertain_i_will_use_in_html' %}">예능 ({{cnt_entertain}})</a></li>
+   
+  </ul>
+
+  </nav>
+ <article>   
+    <ul class = "article_list">
+      {% for article in entertain_articles %} 
+          <li><a style="display:block;"href="{% url 'detail_i_will_use_in_html' article.pk %}"> {{ article.title }}</a></li>
+      {% endfor %}
+   </ul> 
+</article>
+
+</body>
+</html>
