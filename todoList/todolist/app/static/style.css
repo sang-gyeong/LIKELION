@@ -1,7 +1,7 @@
 body {
     background: linear-gradient( to right, #D26BE0, #A9DCFF);
     margin: 0;
-    font-family: 'Poor Story', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
@@ -37,8 +37,10 @@ header {
     font-weight: 600;
     border-radius: 50px;
     position: absolute;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     right: 160px;
+    padding-bottom: 3px;
+    box-sizing: border-box;
 }
 
 .new_button>.material-icons {
@@ -93,12 +95,12 @@ nav .material-icons {
 }
 
 .task_category h1 {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     font-size: 1.8rem;
 }
 
 .task_category p {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
 }
 
 .task_wrapper {
@@ -121,12 +123,13 @@ nav .material-icons {
 }
 
 .d-day {
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
     width: 125px;
     height: 125px;
-    color: black;
+    color: #303030;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,12 +139,21 @@ nav .material-icons {
     background-image: linear-gradient(white, white), radial-gradient(circle at top left, #D26BE0, skyblue);
     background-origin: border-box;
     background-clip: content-box, border-box;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 
 .task_title {
     display: inline-block;
     margin-top: 35px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #303030;
+    font-size: 1.3rem;
+}
+
+.status {
+    font-size: 0.9rem;
+    color: #303030;
 }
 
 
@@ -167,9 +179,8 @@ nav .material-icons {
     padding-left: 10px;
     box-sizing: border-box;
     border: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #303030;
-    font-family: 'Poor Story', cursive;
 }
 
 .category {
@@ -192,6 +203,7 @@ nav .material-icons {
     width: 100%;
     height: 260px;
     margin: 10px 0px;
+    font-size: 0.85rem;
 }
 
 .button_wrapper {
@@ -206,16 +218,17 @@ nav .material-icons {
 .delete_button {
     width: 95px;
     height: 40px;
-    font-size: 1.05rem;
-    font-weight: 900;
+    font-size: 0.95rem;
+    font-weight: 500;
     background-color: black;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poor Story', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left: 20px;
     margin-top: 10px;
+    padding-bottom: 3px;
 }
 
 .back_button {
@@ -244,9 +257,11 @@ nav .material-icons {
     height: 180px;
     white-space: pre-wrap;
     overflow: scroll;
+    font-size: 0.85rem;
 }
 
 .detail_deadline {
     border-bottom: 1px #303030 solid;
-    margin: 4px;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
 }

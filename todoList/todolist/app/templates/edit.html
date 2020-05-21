@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Poor+Story&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% load static %}
@@ -34,12 +35,12 @@
                          <option value="work">work</option>
                          <option value="likelion">likelion</option>
                      </select>
-                        <textarea class="title" name="title" maxlength="9" style="padding-top : 7px;" required>{{task.title}}</textarea>
+                        <textarea class="title" name="title" maxlength="9" style="padding-top : 9px;" required>{{task.title}}</textarea>
                         <input class="deadline" name="deadline" type="date" required>
                     </div>
                     <textarea class="content" name="content" style="padding-top : 10px;">{{task.content}}</textarea>
                     <div class="button_wrapper">
-                        <a class="back_button" href="{% url 'home' %}">홈으로</a>
+                        <a class="back_button" href="{% url 'home' %}">HOME</a>
                         <button class="submit_button" type="submit">수정하기</button>
                     </div>
                 </div>
