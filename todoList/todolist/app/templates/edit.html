@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Poor+Story&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>TO-DO-LIST</title>
+</head>
+
+<body>
+    <header>
+        <a class="new_button" href="{% url 'new' %}"><span class="material-icons">add_circle</span><span>TODO 작성</span></a>
+    </header>
+    <article>
+        <nav>
+            <a href="{% url 'home' %}"><span class="material-icons">home</span></a>
+            <a href="{% url 'personal' %}"><span class="material-icons">face</span></a>
+            <a href="{% url 'work' %}"><span class="material-icons">create</span></a>
+            <a href="{% url 'likelion' %}"> <span class="material-icons">pets</span></a>
+            <a href="{% url 'done' %}"> <span class="material-icons">check_circle</span></a>
+        </nav>
+        <div class="main">
+            <!-- <a href="{% url 'home' %}">HOME</a> -->
+            <form method="POST">
+                <div class="input_box">
+                    {% csrf_token %}
+                    <div class="top_wrapper">
+                        <select class="category" name="category">
+                         <option value="personal">personal</option>
+                         <option value="work">work</option>
+                         <option value="likelion">likelion</option>
+                     </select>
+                        <textarea class="title" name="title" maxlength="9" style="padding-top : 7px;" required>{{task.title}}</textarea>
+                        <input class="deadline" name="deadline" type="date" required>
+                    </div>
+                    <textarea class="content" name="content" style="padding-top : 10px;">{{task.content}}</textarea>
+                    <div class="button_wrapper">
+                        <a class="back_button" href="{% url 'home' %}">홈으로</a>
+                        <button class="submit_button" type="submit">수정하기</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+</body>
+
+</html>

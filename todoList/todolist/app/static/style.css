@@ -1,0 +1,252 @@
+body {
+    background: linear-gradient( to right, #D26BE0, #A9DCFF);
+    margin: 0;
+    font-family: 'Poor Story', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1,
+h2,
+a,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    width: 100%;
+    height: 85px;
+    border-bottom: 1px lightgrey solid;
+    display: flex;
+    align-items: center;
+}
+
+.new_button {
+    background-color: black;
+    color: white;
+    width: 130px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 1.1rem;
+    right: 160px;
+}
+
+.new_button>.material-icons {
+    position: relative;
+    right: 5px;
+    font-size: 25px;
+}
+
+article {
+    width: 78%;
+    height: 495px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+nav {
+    background: linear-gradient( to top, steelblue, purple);
+    width: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+nav .material-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+}
+
+
+/* main */
+
+.main {
+    background: linear-gradient( to right, #e3b6ef, #d3e9ff);
+    width: 93%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.task_category {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: black;
+}
+
+.task_category h1 {
+    margin-bottom: 3px;
+    font-size: 1.8rem;
+}
+
+.task_category p {
+    font-size: 1.05rem;
+}
+
+.task_wrapper {
+    width: 100%;
+    height: 320px;
+    overflow: scroll;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.task_box {
+    background-color: white;
+    display: inline-block;
+    width: 180px;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 50px;
+    margin-right: 15px;
+}
+
+.d-day {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border: double 7px transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #D26BE0, skyblue);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    font-size: 1.5rem;
+}
+
+.task_title {
+    display: inline-block;
+    margin-top: 35px;
+}
+
+
+/* new, edit */
+
+.input_box {
+    width: 80%;
+    height: 90%;
+    margin-left: 55px;
+    margin-top: 40px;
+}
+
+.top_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title,
+.deadline,
+.content,
+.category {
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: none;
+    font-size: 0.95rem;
+    color: #303030;
+    font-family: 'Poor Story', cursive;
+}
+
+.category {
+    width: 16%;
+    height: 35px;
+}
+
+.title {
+    width: 60%;
+    height: 35px;
+    font-weight: 600;
+}
+
+.deadline {
+    width: 22%;
+    height: 35px;
+}
+
+.content {
+    width: 100%;
+    height: 260px;
+    margin: 10px 0px;
+}
+
+.button_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit_button,
+.back_button,
+.edit_button,
+.delete_button {
+    width: 95px;
+    height: 40px;
+    font-size: 1.05rem;
+    font-weight: 900;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poor Story', cursive;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.back_button {
+    background-color: #E1B9EF;
+}
+
+
+/* detail */
+
+.detail_box {
+    width: 60%;
+    height: 60%;
+    margin: 20px;
+    padding: 20px;
+}
+
+.detail_content,
+.detail_deadline,
+.detail_content {
+    color: #303030;
+}
+
+.detail_content {
+    margin: 20px 3px;
+    width: 100%;
+    height: 180px;
+    white-space: pre-wrap;
+    overflow: scroll;
+}
+
+.detail_deadline {
+    border-bottom: 1px #303030 solid;
+    margin: 4px;
+}

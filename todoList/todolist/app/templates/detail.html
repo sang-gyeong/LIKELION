@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Poor+Story&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>TO-DO-LIST</title>
+</head>
+
+<body>
+    <header>
+        <a class="new_button" href="{% url 'new' %}"><span class="material-icons">add_circle</span><span>TODO 작성</span></a>
+    </header>
+    <article>
+        <nav>
+            <a href="{% url 'home' %}"><span class="material-icons">home</span></a>
+            <a href="{% url 'personal' %}"><span class="material-icons">face</span></a>
+            <a href="{% url 'work' %}"><span class="material-icons">create</span></a>
+            <a href="{% url 'likelion' %}"> <span class="material-icons">pets</span></a>
+            <a href="{% url 'done' %}"> <span class="material-icons">check_circle</span></a>
+        </nav>
+        <div class="main">
+            <div class="detail_box">
+                <h2 class="detail_title">{{task.title}}</h2>
+                <p class="detail_deadline">{{task.deadline}} 까지</p>
+                <p class="detail_content">{{task.content}}</p>
+                <div class="button_wrapper">
+                    <a class="back_button" href="{% url 'home' %}">HOME</a>
+                    <a class="edit_button" href="{% url 'edit' task.pk %}">수정하기</a>
+                    <a class="delete_button" href="{% url 'delete' task.pk %}">삭제하기</a>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
