@@ -10,3 +10,12 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='comments')
+    user = models.TextField(default="Unknown")
+    content = models.TextField()
+
+    def __str__(self):
+        return self.content

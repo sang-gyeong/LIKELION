@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Poor+Story&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <title>TO-DO-LIST</title>
-</head>
-
-<body>
-    <header>
-        <a class="new_button" href="{% url 'new' %}"><span class="material-icons">add_circle</span><span>TODO 작성</span></a>
-    </header>
-    <article>
-        <nav>
-            <a href="{% url 'home' %}"><span class="material-icons">home</span></a>
-            <a href="{% url 'personal' %}"><span class="material-icons">face</span></a>
-            <a href="{% url 'work' %}"><span class="material-icons">create</span></a>
-            <a href="{% url 'likelion' %}"> <span class="material-icons">pets</span></a>
-            <a href="{% url 'done' %}"> <span class="material-icons">check_circle</span></a>
-        </nav>
-        <div class="main">
-            <div class="detail_box">
-                <h2 class="detail_title">{{task.title}}</h2>
-                <p class="detail_deadline">{{task.deadline}} 까지</p>
-                <p class="detail_content">{{task.content}}</p>
-                <div class="button_wrapper">
-                    <a class="back_button" href="{% url 'home' %}">HOME</a>
-                    <a class="edit_button" href="{% url 'edit' task.pk %}">수정하기</a>
-                    <a class="delete_button" href="{% url 'delete' task.pk %}">삭제하기</a>
-                </div>
-            </div>
+{% extends 'base.html' %} {% block main %}
+<div class="main">
+    <div class="detail_box">
+        <h2 class="detail_title">{{task.title}}</h2>
+        <p class="detail_deadline">{{task.deadline}} 까지</p>
+        <p class="detail_content">{{task.content}}</p>
+        <div class="button_wrapper">
+            <a class="back_button" href="{% url 'home' %}">HOME</a>
+            <a class="edit_button" href="{% url 'edit' task.pk %}">수정하기</a>
+            <a class="delete_button" href="{% url 'delete' task.pk %}">삭제하기</a>
         </div>
-    </article>
-</body>
+    </div>
+    <div class="comment_box">
+        <div class="comment_wrapper">
+            {% for comment in task.comments.all %}
+            <div class="comment_item">
+                <strong class="comment_user">{{comment.user}}</strong>
+                <p class="comment_content">{{comment.content}}</p>
+                <a class="delete_comment_button" href="{% url 'delete_comment' task.pk comment.pk %}">x</a>
+            </div>
+            {% endfor %}
 
-</html>
+        </div>
+
+        <form class="comment_input" method="POST">
+            {% csrf_token %}
+            <input type="text" class="comment_main" name="content" placeholder="댓글 내용을 입력하세요" max_length="25" required>
+            <div class="comment_submit">
+                <input type="text" class="input_user" name="user" placeholder="ID를 입력하세요" max_length="20" required>
+                <button class="comment_submit_button">댓글달기</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock main %}

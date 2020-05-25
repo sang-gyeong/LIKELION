@@ -1,55 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Poor+Story&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <title>TO-DO-LIST</title>
-</head>
-
-<body>
-    <header>
-        <a class="new_button" href="{% url 'new' %}"><span class="material-icons">add_circle</span><span>TODO 작성</span></a>
-    </header>
-    <article>
-        <nav>
-            <a href="{% url 'home' %}"><span class="material-icons">home</span></a>
-            <a href="{% url 'personal' %}"><span class="material-icons" style="color : gold;">face</span></a>
-            <a href="{% url 'work' %}"><span class="material-icons">create</span></a>
-            <a href="{% url 'likelion' %}"> <span class="material-icons">pets</span></a>
-            <a href="{% url 'done' %}"> <span class="material-icons">check_circle</span></a>
-        </nav>
-        <div class="main">
-            <div href="" class="task_category">
-                <h1>PERSONAL</h1>
-                <p>취미, 약속, 개인적인 업무들</p>
+{% extends 'base.html' %} {% block main %}
+<div class="main">
+    <div href="" class="task_category">
+        <h1>PERSONAL</h1>
+        <p>취미, 약속, 개인적인 업무들</p>
+    </div>
+    <div class="task_wrapper">
+        {% for task in personal_tasks %}
+        <a class="task_box" href="{% url 'detail' task.pk %}">
+            <div class="d-day">
+                <h1>D{{task.d_day}}</h1>
             </div>
-            <div class="task_wrapper">
-                {% for task in personal_tasks %}
-                <a class="task_box" href="{% url 'detail' task.pk %}">
-                    <div class="d-day">
-                        <h1>D{{task.d_day}}</h1>
-                    </div>
-                    <h2 class="task_title">{{task.title}}</h2>
-                    {% if task.d_day == "-0" %}
-                    <p class="status">오늘이에요!</p>
-                    {% elif task.d_day == "-1" or task.d_day == "-2" or task.d_day == "-3" %}
-                    <p class="status">마감일이 다가와요!</p>
-                    {% elif task.d_day == "-4" or task.d_day == "-5" or task.d_day == "-6" or task.d_day == "-7" %}
-                    <p class="status">슬슬 준비해요</p>
-                    {% else%}
-                    <p class="status">잊지마세요</p>
-                    {% endif %}
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </article>
-</body>
-
-</html>
+            <h2 class="task_title">{{task.title}}</h2>
+            {% if task.d_day == "-0" %}
+            <p class="status">오늘이에요!</p>
+            {% elif task.d_day == "-1" or task.d_day == "-2" or task.d_day == "-3" %}
+            <p class="status">마감일이 다가와요!</p>
+            {% elif task.d_day == "-4" or task.d_day == "-5" or task.d_day == "-6" or task.d_day == "-7" %}
+            <p class="status">슬슬 준비해요</p>
+            {% else%}
+            <p class="status">잊지마세요</p>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock main %}

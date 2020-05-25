@@ -86,6 +86,7 @@ nav .material-icons {
     width: 93%;
     padding: 40px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .task_category {
@@ -239,7 +240,7 @@ nav .material-icons {
 /* detail */
 
 .detail_box {
-    width: 60%;
+    width: 58%;
     height: 60%;
     margin: 20px;
     padding: 20px;
@@ -264,4 +265,91 @@ nav .material-icons {
     border-bottom: 1px #303030 solid;
     margin-bottom: 5px;
     font-size: 0.8rem;
+}
+
+
+/* comment */
+
+.comment_box {
+    position: absolute;
+    float: right;
+    right: 60px;
+    top: 85px;
+    width: 25%;
+    height: 65%;
+}
+
+.comment_wrapper {
+    width: 100%;
+    height: 75%;
+    overflow: scroll;
+    display: inline-block;
+}
+
+.comment_item {
+    font-size: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    height: 52px;
+    margin-top: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+    position: relative;
+    color: #303030;
+    box-shadow: 2px 2px 3px;
+}
+
+.delete_comment_button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+.comment_input {
+    background-color: white;
+    opacity: 83%;
+    width: 98%;
+    height: 25%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px black solid;
+    position: relative;
+    left: 5px;
+}
+
+.comment_main {
+    width: 99%;
+    height: 62%;
+    border: none;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.comment_submit {
+    display: inline-block;
+    width: 100%;
+    height: 38%;
+    box-sizing: border-box;
+    border-top: 1px black solid;
+}
+
+.input_user {
+    width: 72%;
+    height: 80%;
+    border: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.comment_submit_button {
+    float: right;
+    border: none;
+    height: 100%;
+    width: 25%;
+    box-sizing: border-box;
+    border-left: 1px black solid;
+    cursor: pointer;
 }

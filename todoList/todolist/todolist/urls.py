@@ -28,4 +28,5 @@ urlpatterns = [
     path('work', views.work, name="work"),
     path('likelion', views.likelion, name="likelion"),
     path('done', views.done, name="done"),
+    path('delete_comment/<int:task_pk>/<int:comment_pk>', views.delete_comment, name="delete_comment"),
 ]

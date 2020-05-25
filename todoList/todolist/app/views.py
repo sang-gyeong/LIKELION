@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Task
+from .models import Task, Comment
 from datetime import date, datetime, timedelta
 
 
@@ -42,6 +42,14 @@ def new(request):
 
 def detail(request, task_pk):
     task = Task.objects.get(pk=task_pk)
+
+    if request.method == "POST":
+        Comment.objects.create(
+            task = task,
+            content = request.POST['content'],
+            user = request.POST['user']
+        )
+        return redirect('detail', task_pk)
     return render(request, 'detail.html', {'task': task})
 
 
@@ -63,6 +71,11 @@ def delete(request, task_pk):
     task = Task.objects.get(pk=task_pk)
     task.delete()
     return redirect('home')
+
+def delete_comment(request, task_pk, comment_pk):
+    comment = Comment.objects.get(pk=comment_pk)
+    comment.delete()
+    return redirect('detail', task_pk)
 
 
 def personal(request):
@@ -111,3 +124,5 @@ def is_done(deadline):
         if date_to_compare < now:
             return True
     return False
+
+
