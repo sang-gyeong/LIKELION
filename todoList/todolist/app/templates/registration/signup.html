@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'registration.css' %}">
+    <title>TO-DO-LIST</title>
+</head>
+
+<body>
+  
+    <form class="signup_box" method="POST">
+    {% csrf_token %}
+    <h1 class="signup_title">SIGN_UP</h1>
+      {% if error %}
+    <p class="error_message"style="color : red;">{{ error }}</p>
+    {% endif %}
+    <div class="signup_wrapper">
+        <input type="text" name="username" placeholder="아이디">
+        <input type="password" name="password" placeholder="비밀번호">
+        <button class="signup_button"type="submit">가입하기</button>
+    </div>
+</form>
+</body>
+
+</html>
+

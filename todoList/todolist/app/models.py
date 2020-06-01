@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Task(models.Model):
@@ -7,6 +8,7 @@ class Task(models.Model):
     category = models.TextField(default="personal")
     deadline = models.DateTimeField(null=True)
     d_day = models.TextField(null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
 
     def __str__(self):
         return self.title
@@ -14,7 +16,7 @@ class Task(models.Model):
 
 class Comment(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='comments')
-    user = models.TextField(default="Unknown")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
     content = models.TextField()
 
     def __str__(self):

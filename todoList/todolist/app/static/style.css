@@ -6,7 +6,7 @@ body {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #303030;
 }
 
 h1,
@@ -24,9 +24,34 @@ header {
     border-bottom: 1px lightgrey solid;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.register_items {
+    background-color: white;
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 320px;
+    top: 25px;
+}
+
+.register_items>* {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #303030;
+}
+
+.signup,
+.logout {
+    border-left: 1px gray solid;
+    padding-left: 10px;
 }
 
 .new_button {
+    position: absolute;
+    right: 165px;
     background-color: black;
     color: white;
     width: 130px;
@@ -36,9 +61,7 @@ header {
     align-items: center;
     font-weight: 600;
     border-radius: 50px;
-    position: absolute;
     font-size: 0.95rem;
-    right: 160px;
     padding-bottom: 3px;
     box-sizing: border-box;
 }

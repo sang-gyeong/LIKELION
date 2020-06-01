@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Task, Comment
 from datetime import date, datetime, timedelta
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+
 
 
 def cal_d_day(deadline):
@@ -26,7 +30,7 @@ def home(request):
             todo_tasks.append(task)
     return render(request, 'home.html', {'todo_tasks': todo_tasks})
 
-
+@login_required(login_url='/registration/login')
 def new(request):
     if request.method == 'POST':
         new_task = Task.objects.create(
@@ -34,7 +38,8 @@ def new(request):
             content=request.POST['content'],
             deadline=request.POST['deadline'],
             category=request.POST['category'],
-            d_day=cal_d_day(request.POST['deadline'])
+            d_day=cal_d_day(request.POST['deadline']),
+            author = request.user
         )
         return redirect('detail', new_task.pk)
     return render(request, 'new.html')
@@ -47,7 +52,7 @@ def detail(request, task_pk):
         Comment.objects.create(
             task = task,
             content = request.POST['content'],
-            user = request.POST['user']
+            author = request.user
         )
         return redirect('detail', task_pk)
     return render(request, 'detail.html', {'task': task})
@@ -56,7 +61,7 @@ def detail(request, task_pk):
 def edit(request, task_pk):
     task = Task.objects.get(pk=task_pk)
     if request.method == 'POST':
-        edited_tast = Task.objects.filter(pk=task_pk).update(
+        edited_task = Task.objects.filter(pk=task_pk).update(
             title=request.POST['title'],
             content=request.POST['content'],
             deadline=request.POST['deadline'],
@@ -126,3 +131,43 @@ def is_done(deadline):
     return False
 
 
+def signup(request):
+    if (request.method == 'POST'):
+        found_user = User.objects.filter(username=request.POST['username'])
+        if (len(found_user)>0):
+            error = 'username이 이미 존재합니다'
+            return render(request, 'registration/signup.html', {'error' : error})
+
+        new_user = User.objects.create_user(
+            username = request.POST['username'],
+            password = request.POST['password']
+        )
+        auth.login(request, new_user)
+        return redirect('home')
+    return render(request, 'registration/signup.html')
+
+
+
+def login(request):
+    if (request.method == 'POST'):
+        found_user = auth.authenticate(
+            username = request.POST['username'],
+            password = request.POST['password']
+        )
+        if (found_user is None):
+            error = "아이디 또는 비밀번호가 틀렸습니다"
+            return render(request, 'registration/login.html', {'error' : error})
+
+        auth.login(
+            request,
+            found_user,
+            backend='django.contrib.auth.backends.ModelBackend')
+        return redirect(request.GET.get('next', '/'))
+    
+    return render(request, 'registration/login.html')
+
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('home')
