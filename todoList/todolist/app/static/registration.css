@@ -109,8 +109,11 @@ input {
 .social_login {
     background-color: white;
     color: gray;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border: 0.5px lightgray solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup_ask {

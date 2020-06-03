@@ -28,8 +28,9 @@
         <input type="text" name="username" placeholder="아이디">
         <input type="password" name="password" placeholder="비밀번호">
          <div class="button_box">
+           <a class="social_login" href="{% provider_login_url 'google' %}">Google 계정 로그인</a>
              <button class="login_button" type="submit">로그인</button>
-             <a class="social_login" href="{% provider_login_url 'google' %}">Google 계정 로그인</a>
+           
         </div>
      </div>
      <a class="signup_ask" href="{% url 'signup' %}">아직 회원이 아니세요?</a>

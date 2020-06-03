@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block main %}
+{% extends 'based.html' %} {% block content %}
 <div class="main">
     <div class="detail_box">
         <h2 class="detail_title">{{task.title}}</h2>
@@ -6,7 +6,7 @@
         <p class="detail_content">{{task.content}}</p>
         <div class="button_wrapper">
             <a class="back_button" href="{% url 'home' %}">HOME</a>
-            {% if user.is_authenticated and post.author.pk ==user.pk %}
+            {% if user.is_authenticated and post.author.pk == user.pk %}
             <a class="edit_button" href="{% url 'edit' task.pk %}">수정하기</a>
             <a class="delete_button" href="{% url 'delete' task.pk %}">삭제하기</a>
             {% endif %}
@@ -38,4 +38,4 @@
         {% endif %}
     </div>
 </div>
-{% endblock main %}
+{% endblock %}
