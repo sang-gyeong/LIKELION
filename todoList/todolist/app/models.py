@@ -21,3 +21,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
+class Post(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='posts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    description = models.CharField(max_length=50)
+    img = models.TextField()
+
+    def __str__(self):
+        return self.description

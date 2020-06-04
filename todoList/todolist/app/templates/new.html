@@ -1,6 +1,6 @@
 {% extends 'based.html' %} {% block content %}
 <div class="main">
-    <form method="POST">
+    <form method="POST" enctype = "multipart/form-data">
         <div class="input_box">
             {% csrf_token %}
             <div class="top_wrapper">
@@ -13,6 +13,10 @@
                 <input class="deadline" name="deadline" type="date" required>
             </div>
             <textarea class="content" name="content" placeholder="내용을 입력하세요" style="padding-top : 10px;"></textarea>
+            <div class="img_input_box">
+                <input class="img_description" type="text" name="description" maxlength="50" placeholder="이미지를 간략히 설명해주세요" >
+                <input class="img_file" type="file" name="img">
+            </div>
             <div class="button_wrapper">
                 <a class="back_button" href="{% url 'home' %}">HOME</a>
                 <button class="submit_button" type="submit">작성하기</button>

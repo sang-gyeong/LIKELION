@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Task, Comment
-from datetime import date, datetime, timedelta
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-
-
+from datetime import datetime, timedelta
+from .models import Task, Comment, Post
+from .utils import upload_and_save
 
 def cal_d_day(deadline):
     str_now = datetime.strftime(datetime.now(), '%Y-%m-%d')
@@ -41,12 +40,17 @@ def new(request):
             d_day=cal_d_day(request.POST['deadline']),
             author = request.user
         )
+        file_to_upload = request.FILES.get('img')
+        upload_and_save(request, file_to_upload, new_task)
         return redirect('detail', new_task.pk)
+
+    posts = Post.objects.all()
     return render(request, 'new.html')
 
 
 def detail(request, task_pk):
     task = Task.objects.get(pk=task_pk)
+    post = Post.objects.get(task=task)
 
     if request.method == "POST":
         Comment.objects.create(
@@ -55,7 +59,7 @@ def detail(request, task_pk):
             author = request.user
         )
         return redirect('detail', task_pk)
-    return render(request, 'detail.html', {'task': task})
+    return render(request, 'detail.html', {'task': task, 'post' : post})
 
 
 def edit(request, task_pk):

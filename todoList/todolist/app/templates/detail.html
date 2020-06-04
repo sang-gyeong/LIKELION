@@ -3,7 +3,13 @@
     <div class="detail_box">
         <h2 class="detail_title">{{task.title}}</h2>
         <p class="detail_deadline">{{task.deadline}} 까지</p>
-        <p class="detail_content">{{task.content}}</p>
+        <div class="datail_content_wrapper">
+          <p class="detail_content">{{task.content}}</p>
+          <div class="detail_img_wrapper">
+            <img class="detail_img" src="{{ post.img }}" alt="img">
+            <p class="detail_img_description">{{ post.description }}</p>
+          </div>
+        </div>
         <div class="button_wrapper">
             <a class="back_button" href="{% url 'home' %}">HOME</a>
             {% if user.is_authenticated and post.author.pk == user.pk %}
