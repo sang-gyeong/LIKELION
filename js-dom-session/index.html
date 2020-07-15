@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<div class="container">
+    <h1 id="title1">javascript</h1>
+    <h1 class="title2">자바스크립트</h1>
+    <h1 class="title2">작은 제목</h1>
+</div>
+<script>
+  const h1s = document.querySelectorAll('h1');
+  const changeColor = function(){
+      h1s[0].style.color = (h1s[0].style.color ==='red') ? 'blue' : 'red'
+      h1s[1].style.color = (h1s[1].style.color ==='yellow') ? 'yellow' : 'green'
+  }
+  setInterval(changeColor, 300)//0.1초 
+
+  const title1 = document.getElementById('title1')
+  title1.innerText = "바꿀내용"
+  const titles = document.getElementsByClassName('title2')
+  titles[0].innerText = "바뀐내용"
+
+
+</script>
+
+</body>
+</html>
