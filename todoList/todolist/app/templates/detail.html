@@ -14,7 +14,7 @@
             <a class="back_button" href="{% url 'home' %}">HOME</a>
             {% if user.is_authenticated and post.author.pk == user.pk %}
             <a class="edit_button" href="{% url 'edit' task.pk %}">수정하기</a>
-            <a class="delete_button" href="{% url 'delete' task.pk %}">삭제하기</a>
+            <a class="delete_button" href="{% url 'delete_editor' task.pk %}">삭제하기</a>
             {% endif %}
         </div>
     </div>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+<body>
+    <h2> {{post.title}} </h2>
+    <p> {{post.description}} </p>
+    <a style="display : inline-block; width:100px; text-align : center; background-color : black; color : white; text-decoration : none;" href="{% url 'home' %}"> home </a>
+    <a style="display : inline-block; width:100px; text-align : center; background-color : black; color : white; text-decoration : none;" href="{% url 'edit' post.pk %}"> edit </a>
+    <a style="display : inline-block; width:100px; text-align : center; background-color : black; color : white; text-decoration : none;" href="{% url 'delete' post.pk %}"> delete </a>
+</body>
+</html>

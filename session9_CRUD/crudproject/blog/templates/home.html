@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CRUD</title>
+</head>
+    <body>
+    {% for post in posts %}
+    <div>        <!-- post의 pk를 인자로 전달 -->
+        <a href="{% url 'detail' post.pk %}"> <h3>{{post.title}}</h3></a>
+        <!-- <p>{{post.descrption}}</p> -->
+    </div>
+    {% endfor %}
+    <a style="display : inline-block; width:100px; text-align : center; background-color : black; color : white; text-decoration : none;"href="{% url 'new' %}">write</a>
+    </body>
+</html>
