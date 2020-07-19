@@ -48,7 +48,26 @@
         </div>
       </div>
     </div>
-    <script src='./hw2.js'></script>
+    <script>
+        const div = document.querySelector('div');
+        const divs = document.querySelectorAll('div');
+
+        const GOLD = '#FFD700';
+        const BLUE = '#1E90FF';
+        const WHITE = '#FFFFFF';
+
+        div.addEventListener('click', function(event){
+          const divClicked = event.target;
+          const divParent = divClicked.parentNode;
+          divs.forEach(function(d){
+             d.style.background = WHITE;
+          });
+          divClicked.style.background = GOLD;
+          if (divParent.tagName==='DIV'){
+            divParent.style.background = BLUE;
+          }
+        });
+    </script>
   </body>
 
 </html>

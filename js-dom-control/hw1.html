@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="hw1.css">
   <title>word counter</title>
+  <style>
+    body {
+      display : flex;
+      flex-direction : column;
+      justify-content: center;
+      margin-top : 90px;
+      background-color : #E1E1FF;
+    }
+    .container {
+      text-align : center;
+    }
+
+    .input {
+      width : 380px;
+      height : 200px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -16,7 +33,20 @@
     <p>공백 제외 : <span class="word_only"></span>개</p>
 
     </div>
-    <script src="./hw1.js"></script>
+    <script>
+      const input = document.querySelector('.input');
+      const all = document.querySelector('.all');
+      const word_only = document.querySelector('.word_only');
+      
+      input.addEventListener('keyup', function(e){
+        let redex = /\s/ig; //공백, 줄바꿈
+        let word = event.target.value;
+        let trimed = word.replace(redex, "");
+        
+        all.textContent = word.length;
+        word_only.textContent = trimed.length;
+      });
+    </script>
 
 </body>
 </html>
