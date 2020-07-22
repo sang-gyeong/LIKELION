@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+<main>
+     <p class="shop-title">SHOP</p>
+     <div class="post-item-box">
   {% for post in posts %}
-  <div>
-    <ul>
-      <li>
-        <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
-      </li>
-    </ul>
-  </div>
+        <div class="post-item">
+          <a href="{% url 'detail' post.pk %}" class="post-img" style="background-image : url('{{ post.img_url }}'); background-size:cover; background-position:center center"></a>
+          <a href="{% url 'detail' post.pk %}" class="post-title">{{ post.title }}</a>
+          <p class="post-price">{{ post.price }}원</p>
+        </div>
+      
   {% endfor %}
-  <a href="{% url 'new' %}">글 쓰러가기</a>
+  </div>
+    </main>
+  <a href="{% url 'new' %}" class="new">글 쓰러가기</a>
 {% endblock content %}

@@ -2,8 +2,10 @@
 {% block content %}
 <form method="POST">
   {% csrf_token %}
-  <input type="text" name="title" value="{{ post.title }}" placeholder="제목을 입력해주세요">
-  <input type="text" name="content" value="{{ post.content }}" placeholder="내용을 입력해주세요">
+  <input type="text" name="title" value="{{ post.title }}" placeholder="제목을 입력해주세요" required>
+  <input type="text" name="content" value="{{ post.content }}" placeholder="내용을 입력해주세요" required>
+   <input type="number" name="price" value="{{ post.price }}" placeholder="가격을 입력해주세요" required>
+    <input type="url" name="img_url" value="{{ post.img_url }}" placeholder="이미지 주소를 입력해주세요" required>
   <button type="submit">수정하기</button>
 </form>
 {% endblock content %}

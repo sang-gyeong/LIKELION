@@ -19,6 +19,8 @@ def new(request):
         new_post = Post.objects.create(
             title = request.POST['title'],
             content = request.POST['content'],
+            price = request.POST['price'],
+            img_url = request.POST['img_url'],
             author = request.user
         )
         return redirect('detail', new_post.pk)
@@ -36,17 +38,8 @@ def detail(request, post_pk):
         post = post,
         user = request.user
     )
-
-    if existing_like.count() > 0 :
-        is_like = True
-    else :
-        is_like = False
-
-    if existing_wish.count() > 0 :
-        is_wish = True
-    else :
-        is_wish = False
-
+    is_like = True if (existing_like.count() > 0 ) else False
+    is_wish = True if (existing_wish.count() > 0 ) else False
 
     if (request.method == 'POST'):
         Comment.objects.create(
@@ -61,14 +54,15 @@ def detail(request, post_pk):
 @login_required(login_url='/registration/login')
 def edit(request, post_pk):
     post = Post.objects.get(pk=post_pk)
-
     if request.method == 'POST':
         Post.objects.filter(pk=post_pk).update(
-          title = request.POST['title'],
-          content = request.POST['content']
+           title = request.POST['title'],
+            content = request.POST['content'],
+            price = request.POST['price'],
+            img_url = request.POST['img_url'],
+            author = request.user
         )
         return redirect('detail', post_pk)
-
     return render(request, 'edit.html', {'post': post}) 
 
 @login_required(login_url='/registration/login')

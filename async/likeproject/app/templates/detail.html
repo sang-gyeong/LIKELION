@@ -1,38 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div>
-    <div>
-      <div>{{ post.title }}</div>
-      <div>{{ post.content }}</div>
-    </div>
-    <a href="{% url 'home' %}">홈으로</a>
-
-    {% if user.is_authenticated and post.author.pk == user.pk %}
-    <a href="{% url 'edit' post.pk %}">수정하기</a>
-    <a href="{% url 'delete' post.pk %}">삭제하기</a>
-    {% endif %}
-
-    {% for comment in post.comments.all %}
-      <li>{{ comment.content }}</li>
-      {% if user.is_authenticated and comment.author.pk == user.pk %}
-      <a href="{% url 'delete_comment' post.pk comment.pk %}">댓글삭제</a>
-      {% endif %}
-    {% endfor %}
-
-    {% if user.is_authenticated %}
-    <form method="POST">
-      {% csrf_token %}
-      <input type="text" name="content" placeholder="댓글을 입력하세요">
-      <button type="submit">댓글 쓰기</button>
-    </form>
-
-    <button id="like-button" class="like-button {% if is_like == True %}red{% endif %}" onclick="like()" >좋아요</button>
-    <button id="wish-button" class="wish-button {% if is_wish == True %}blue{% endif %}" onclick="wish()">찜하기</button>
-    {% endif %}
-    <div id="like-count">좋아요 {{post.likes.count}}개</div>
-    <div id="wish-count">찜 {{post.wishes.count}}개</div>
+ <main>
+   
+   <div class="detail-top">
+    
+     <div class="detail-post-img" style="background-image : url('{{ post.img_url }}'); background-size:cover; background-position:center center"></div>
+      <div class="detail-content-box">
+        <div class="detail-post-title">{{ post.title }}</div>
+        <div class="detail-post-price">{{ post.price }}</div>
+        <div class="detail-post-content">{{ post.content }}</div>
+        <div class="status-box">
+              <button id="like-button" class="like-button {% if is_like == True %}red{% endif %}" onclick="like()" >좋아요 {{post.likes.count}}개 </button>
+              <button id="wish-button" class="wish-button {% if is_wish == True %}blue{% endif %}" onclick="wish()">찜하기 {{post.wishes.count}}개 </button>
+        </div>
+      </div>
   </div>
+{% if user.is_authenticated and post.author.pk == user.pk %}
+  <div class="button-wrapper">
+    <a href="{% url 'edit' post.pk %}" class="edit-button">수정하기</a>
+    <a href="{% url 'delete' post.pk %}" class="delete-button">삭제하기</a>
+  </div>
+    {% endif %}
+  
+  <form class="comment-form"method="POST">
+      {% csrf_token %}
+      <input class="comment-input" type="text" name="content" placeholder="댓글을 입력하세요" maxlength="80">
+      <button class="new-comment-button"type="submit">댓글 쓰기</button>
+ </form>
 
+   <div class="comment-item-box">
+   {% for comment in post.comments.all %}
+     <div class="comment-item">
+      <p class="comment-content">{{ comment.content }}</p>
+    {% if user.is_authenticated and comment.author.pk == user.pk %}
+      <a class="comment-delete-button"href="{% url 'delete_comment' post.pk comment.pk %}">x</a>
+    {% endif %}
+     </div>
+
+    {% endfor %}
+  </div>
+ </main>
+    
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
 
@@ -42,7 +50,7 @@
         data : {post_pk : "{{ post.pk }}"}
       })
         .then(response => {
-          document.getElementById('like-count').innerHTML ='좋아요' + response.data.like_count + '개';
+          document.getElementById('like-button').innerHTML ='좋아요 ' + response.data.like_count + '개';
           if (response.data.is_like == true){
             document.getElementById('like-button').classList.add('red');
             response.data.is_like = false
@@ -60,7 +68,7 @@
         data : {post_pk : "{{ post.pk }}"} 
       })
         .then(response => {
-          document.getElementById('wish-count').innerHTML ='찜' + response.data.wish_count + '개';
+          document.getElementById('wish-button').innerHTML ='찜하기 ' + response.data.wish_count + '개';
           if (response.data.is_wish == true){
             document.getElementById('wish-button').classList.add('blue');
             response.data.is_wish = false
@@ -73,6 +81,7 @@
 
 
   </script>
+
 
 
 {% endblock content %}

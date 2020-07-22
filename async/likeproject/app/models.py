@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    img_url = models.TextField()
-    price = models.IntegerField()
-    content = models.TextField()
+    img_url = models.TextField(null=True, blank=True)
+    price = models.IntegerField(null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     # like_users = models.ManyToManyField(Profile, related_name='like_posts')
 

@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div>
-    <ul>좋아요 목록
+<main>
+  <div class="mypage-box">
+      <p class="like-list-title">좋아요한 상품 목록</p>
+      <div class="like-list-box">
         {% for like_post in like_posts %}
-      <li>
-        <a href="{% url 'detail' like_post.pk %}">{{ like_post.title }}</a> 
-      </li>
+          <a href="{% url 'detail' like_post.pk %}" style="background-image : url('{{ like_post.img_url }}'); background-size:cover; background-position:center center" class="like-item"></a>
         {% endfor %}
-    </ul>
-     <ul>찜한 목록
-        {% for wish_post in wish_posts %}
-      <li>
-        <a href="{% url 'detail' wish_post.pk %}">{{ wish_post.title }}</a> 
-      </li>
-        {% endfor %}
-    </ul>
-  </div>
-  <a href="{% url 'new' %}">글 쓰러가기</a>
+      </div>
+      <p class="wish-list-title">찜한 상품목록</p>
+      <div class="wish-list-box">
+          {% for wish_post in wish_posts %}
+            <div class="wish-item">
+              <a href="{% url 'detail' wish_post.pk %}"style="background-image : url('{{ wish_post.img_url }}'); background-size:cover; background-position:center center" class="wish-item"></a> 
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+</main>
 {% endblock content %}

@@ -2,8 +2,16 @@
 {% block content %}
   <form method="POST">
     {% csrf_token %}
-    <input type="text" name="title" placeholder="제목을 입력해주세요">
-    <input type="text" name="content" placeholder="내용을 입력해주세요">
-    <button type="submit">작성하기</button>
+    <div class="new-input-box">
+      <input class="new-input-title" type="text" name="title" placeholder="제목을 입력해주세요" required>
+      <input class="new-input-content" type="text" name="content" placeholder="내용을 입력해주세요" required>
+      <div class="price-img-wrapper">
+        <input class="new-input-price" type="number" name="price" placeholder="가격을 입력해주세요" required>
+        <input class="new-input-img" type="url" name="img_url" placeholder="이미지 주소를 입력해주세요" required>
+      </div>
+      <button class="new-submit-button" type="submit">작성하기</button>
+    </div>
+
+   
   </form>
 {% endblock content %}
