@@ -141,6 +141,13 @@ a.new{
   height : 45px;
   margin-top : 10px;
 }
+.red{
+  color : #dd2727;
+}
+
+.blue{
+  color : #007fff;
+}
 
 
 .button-wrapper{
@@ -205,13 +212,6 @@ a.new{
   color : #d36e6e;
 }
 
-.red{
-  color : #dd2727;
-}
-
-.blue{
-  color : #007fff;
-}
 
 
 .comment-item-box{

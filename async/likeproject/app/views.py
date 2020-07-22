@@ -170,7 +170,6 @@ def wish(request):
             post = Post.objects.get(pk=post_pk),
             user = request.user
         )
-
         if existing_wish.count() > 0 :
             is_wish = False
             existing_wish.delete()
@@ -195,22 +194,10 @@ def wish(request):
 
 @login_required(login_url='/registration/login')
 def mypage(request):
-    posts = Post.objects.all()
-    like_posts = []
-    wish_posts = []
-
-    for post in posts :
-        like = Like.objects.filter(
-            post = post,
-            user = request.user
-        )
-        wish = Wish.objects.filter(
-            post = post,
-            user = request.user
-        )
-        if like :
-            like_posts.append(post)
-        if wish :
-            wish_posts.append(post)
-
+    like_posts = Like.objects.filter(
+        user = request.user
+    )
+    wish_posts = Wish.objects.filter(
+        user = request.user
+    )
     return render(request, 'mypage.html', {'like_posts' : like_posts , 'wish_posts' : wish_posts})
